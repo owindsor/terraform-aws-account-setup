@@ -1,5 +1,5 @@
 resource "aws_config_config_rule" "require_tag_rule" {
-  count = "${var.enable_aws_config && var.tag1Key != "" && var.enable_rule_require_tag ? 1 : 0 }"
+  count = "${var.enable_aws_config && var.tag1Key != "" && var.enable_rule_require_tag ? 1 : 0}"
   name  = "require_tag"
 
   source {
@@ -57,10 +57,10 @@ resource "aws_config_config_rule" "require_tag_rule" {
 
 resource "aws_config_config_rule" "require_root_account_MFA_enabled_rule" {
   count = "${var.enable_aws_config && var.enable_rule_require_root_account_MFA ? 1 : 0}"
-  name  = "require_root_account_mfa_enabled"
+  name = "require_root_account_mfa_enabled"
 
   source {
-    owner             = "AWS"
+    owner = "AWS"
     source_identifier = "ROOT_ACCOUNT_MFA_ENABLED"
   }
 
@@ -72,10 +72,10 @@ resource "aws_config_config_rule" "require_root_account_MFA_enabled_rule" {
 
 resource "aws_config_config_rule" "cloud_trail_enabled_rule" {
   count = "${var.enable_aws_config && var.enable_rule_require_cloud_trail ? 1 : 0}"
-  name  = "cloud_trail_enabled"
+  name = "cloud_trail_enabled"
 
   source {
-    owner             = "AWS"
+    owner = "AWS"
     source_identifier = "CLOUD_TRAIL_ENABLED"
   }
 
@@ -87,7 +87,7 @@ resource "aws_config_config_rule" "cloud_trail_enabled_rule" {
 
 resource "aws_config_config_rule" "iam_password_policy_rule" {
   count = "${var.enable_aws_config && var.enable_rule_iam_password_policy ? 1 : 0}"
-  name  = "iam_password_policy"
+  name = "iam_password_policy"
 
   input_parameters = <<POLICY
 {
